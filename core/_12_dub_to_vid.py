@@ -23,10 +23,10 @@ if platform.system() == 'Linux':
 if platform.system() == 'Darwin':
     TRANS_FONT_NAME = 'Arial Unicode MS'
 
-TRANS_FONT_COLOR = '&H00FFFF'
+TRANS_FONT_COLOR = '&HFFFFFF'
 TRANS_OUTLINE_COLOR = '&H000000'
-TRANS_OUTLINE_WIDTH = 1 
-TRANS_BACK_COLOR = '&H33000000'
+TRANS_OUTLINE_WIDTH = 2
+TRANS_SHADOW_COLOR = '&H80000000'
 
 def merge_video_audio():
     """Merge video and audio, and reduce video volume"""
@@ -61,7 +61,7 @@ def merge_video_audio():
         f"subtitles={DUB_SUB_FILE}:force_style='FontSize={TRANS_FONT_SIZE},"
         f"FontName={TRANS_FONT_NAME},PrimaryColour={TRANS_FONT_COLOR},"
         f"OutlineColour={TRANS_OUTLINE_COLOR},OutlineWidth={TRANS_OUTLINE_WIDTH},"
-        f"BackColour={TRANS_BACK_COLOR},Alignment=2,MarginV=27,BorderStyle=4'"
+        f"ShadowColour={TRANS_SHADOW_COLOR},Alignment=2,MarginV=27,BorderStyle=1'"
     )
     
     cmd = [

@@ -23,10 +23,10 @@ SRC_FONT_COLOR = '&HFFFFFF'
 SRC_OUTLINE_COLOR = '&H000000'
 SRC_OUTLINE_WIDTH = 1
 SRC_SHADOW_COLOR = '&H80000000'
-TRANS_FONT_COLOR = '&H00FFFF'
+TRANS_FONT_COLOR = '&HFFFFFF'
 TRANS_OUTLINE_COLOR = '&H000000'
-TRANS_OUTLINE_WIDTH = 1 
-TRANS_BACK_COLOR = '&H33000000'
+TRANS_OUTLINE_WIDTH = 2
+TRANS_BACK_COLOR = '&H00000000'
 
 OUTPUT_DIR = "output"
 OUTPUT_VIDEO = f"{OUTPUT_DIR}/output_sub.mp4"
@@ -75,8 +75,8 @@ def merge_subtitles_to_video():
     trans_style = (
         f"FontSize={TRANS_FONT_SIZE}\\,FontName={TRANS_FONT_NAME}\\,"
         f"PrimaryColour={TRANS_FONT_COLOR}\\,OutlineColour={TRANS_OUTLINE_COLOR}\\,"
-        f"OutlineWidth={TRANS_OUTLINE_WIDTH}\\,BackColour={TRANS_BACK_COLOR}\\,"
-        f"Alignment=2\\,MarginV=27\\,BorderStyle=4"
+        f"OutlineWidth={TRANS_OUTLINE_WIDTH}\\,ShadowColour={SRC_SHADOW_COLOR}\\,"
+        f"Alignment=2\\,MarginV=27\\,BorderStyle=1"
     )
     ffmpeg_cmd = [
         FFMPEG, '-i', video_file,
