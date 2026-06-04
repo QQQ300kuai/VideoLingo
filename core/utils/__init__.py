@@ -1,3 +1,5 @@
+import os
+
 # use try-except to avoid error when installing
 try:
     from .ask_gpt import ask_gpt
@@ -7,4 +9,7 @@ try:
 except ImportError:
     pass
 
-__all__ = ["ask_gpt", "except_handler", "check_file_exists", "load_key", "update_key", "rprint", "get_joiner"]
+_FFMPEG_FULL = "/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg"
+FFMPEG = _FFMPEG_FULL if os.path.isfile(_FFMPEG_FULL) else "ffmpeg"
+
+__all__ = ["ask_gpt", "except_handler", "check_file_exists", "load_key", "update_key", "rprint", "get_joiner", "FFMPEG"]

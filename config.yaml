@@ -11,10 +11,10 @@ display_language: "zh-CN"
 
 # API settings
 api:
-  key: 'your-api-key'
-  base_url: 'https://yunwu.ai'
-  model: ''
-  llm_support_json: false
+  key: 'sk-qeoldkenhsfyqzwthgarfqedqczjjdhkgplmoyqciubxoggv'
+  base_url: 'https://api.siliconflow.cn/v1'
+  model: 'deepseek-ai/DeepSeek-V3.2'
+  llm_support_json: true
 # *Number of LLM multi-threaded accesses, set to 1 if using local LLM
 max_workers: 4
 
@@ -31,9 +31,9 @@ whisper:
   language: 'en'
   detected_language: 'en'
   # Whisper running mode ["local", "cloud", "elevenlabs"]. Specifies where to run, cloud uses 302.ai API
-  runtime: 'local'
+  runtime: 'cloud'
   # 302.ai API key
-  whisperX_302_api_key: 'your_302_api_key'
+  whisperX_302_api_key: 'sk-gr8PfIhg2EZVQAWyvzLLWWGUWdAmqRx5SG5vTTGdU1hvYFer'
   # ElevenLabs API key (experimental)
   elevenlabs_api_key: 'your_elevenlabs_api_key'
 
@@ -71,12 +71,12 @@ pause_before_translate: false
 
 ## ======================== Dubbing Settings ======================== ##
 # TTS selection [sf_fish_tts, openai_tts, gpt_sovits, azure_tts, fish_tts, edge_tts, custom_tts]
-tts_method: 'azure_tts'
+tts_method: 'sf_cosyvoice2'
 
 # SiliconFlow FishTTS
 sf_fish_tts:
   # SiliconFlow API key
-  api_key: 'YOUR_API_KEY'
+  api_key: 'sk-qeoldkenhsfyqzwthgarfqedqczjjdhkgplmoyqciubxoggv'
   # only for mode "preset"
   voice: 'anna'
   # *only for mode "custom", dont set manually
@@ -87,17 +87,17 @@ sf_fish_tts:
 
 # OpenAI TTS-1 API configuration, 302.ai API only
 openai_tts:
-  api_key: 'YOUR_302_API_KEY'
+  api_key: ''
   voice: 'alloy'
 
 # Azure configuration, 302.ai API only
 azure_tts:
-  api_key: 'YOUR_302_API_KEY'
+  api_key: ''
   voice: 'zh-CN-YunfengNeural'
 
 # FishTTS configuration, 302.ai API only
 fish_tts:
-  api_key: 'YOUR_302_API_KEY'
+  api_key: 'sk-gr8PfIhg2EZVQAWyvzLLWWGUWdAmqRx5SG5vTTGdU1hvYFer'
   character: 'AD学姐'
   character_id_dict:
     'AD学姐': '7f92f8afb8ec43bf81429cc1c9199cb1'
@@ -105,7 +105,7 @@ fish_tts:
 
 # SiliconFlow CosyVoice2 Clone
 sf_cosyvoice2:
-  api_key: 'YOUR_SF_KEY'
+  api_key: 'sk-qeoldkenhsfyqzwthgarfqedqczjjdhkgplmoyqciubxoggv'
 
 # Edge TTS configuration
 edge_tts:
@@ -117,7 +117,7 @@ gpt_sovits:
   refer_mode: 3
 
 f5tts:
-  302_api: 'YOUR_302_API_KEY'
+  302_api: 'sk-gr8PfIhg2EZVQAWyvzLLWWGUWdAmqRx5SG5vTTGdU1hvYFer'
 
 # *Audio speed range
 speed_factor:

@@ -1,4 +1,5 @@
 import os
+import numpy as np
 import pandas as pd
 import subprocess
 from pydub import AudioSegment
@@ -19,7 +20,7 @@ def load_and_flatten_data(excel_file):
     lines = [eval(line) if isinstance(line, str) else line for line in df['lines'].tolist()]
     lines = [item for sublist in lines for item in sublist]
     
-    new_sub_times = [eval(time) if isinstance(time, str) else time for time in df['new_sub_times'].tolist()]
+    new_sub_times = [eval(time, {"np": np}) if isinstance(time, str) else time for time in df['new_sub_times'].tolist()]
     new_sub_times = [item for sublist in new_sub_times for item in sublist]
     
     return df, lines, new_sub_times
@@ -39,7 +40,7 @@ def process_audio_segment(audio_file):
     """Process a single audio segment with MP3 compression"""
     temp_file = f"{audio_file}_temp.mp3"
     ffmpeg_cmd = [
-        'ffmpeg', '-y',
+        FFMPEG, '-y',
         '-i', audio_file,
         '-ar', '16000',
         '-ac', '1',

@@ -35,7 +35,7 @@ def adjust_audio_speed(input_file: str, output_file: str, speed_factor: float) -
         return
         
     atempo = speed_factor
-    cmd = ['ffmpeg', '-i', input_file, '-filter:a', f'atempo={atempo}', '-y', output_file]
+    cmd = [FFMPEG, '-i', input_file, '-filter:a', f'atempo={atempo}', '-y', output_file]
     input_duration = get_audio_duration(input_file)
     max_retries = 2
     for attempt in range(max_retries):

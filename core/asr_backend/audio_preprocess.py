@@ -13,7 +13,7 @@ def _ffmpeg_has_encoder(encoder_name: str) -> bool:
     """Check if the current ffmpeg installation supports a given audio encoder."""
     try:
         result = subprocess.run(
-            ['ffmpeg', '-encoders'], capture_output=True, text=True, timeout=10
+            [FFMPEG, '-encoders'], capture_output=True, text=True, timeout=10
         )
         return encoder_name in result.stdout
     except Exception:
@@ -33,7 +33,7 @@ def convert_video_to_audio(video_file: str):
         rprint(f"[blue]🎬➡️🎵 Converting to high quality audio with FFmpeg ......[/blue]")
         if _ffmpeg_has_encoder('libmp3lame'):
             cmd = [
-                'ffmpeg', '-y', '-i', video_file, '-vn',
+                FFMPEG, '-y', '-i', video_file, '-vn',
                 '-c:a', 'libmp3lame', '-b:a', '32k',
                 '-ar', '16000', '-ac', '1',
                 '-metadata', 'encoding=UTF-8', _RAW_AUDIO_FILE
@@ -45,7 +45,7 @@ def convert_video_to_audio(video_file: str):
             # file header, not extension, so .mp3 path with WAV content works.
             rprint("[yellow]⚠️ libmp3lame not found in ffmpeg, falling back to WAV (PCM) encoding[/yellow]")
             cmd = [
-                'ffmpeg', '-y', '-i', video_file, '-vn',
+                FFMPEG, '-y', '-i', video_file, '-vn',
                 '-c:a', 'pcm_s16le', '-ar', '16000', '-ac', '1',
                 '-f', 'wav', _RAW_AUDIO_FILE
             ]
@@ -54,7 +54,7 @@ def convert_video_to_audio(video_file: str):
 
 def get_audio_duration(audio_file: str) -> float:
     """Get the duration of an audio file using ffmpeg."""
-    cmd = ['ffmpeg', '-i', audio_file]
+    cmd = [FFMPEG, '-i', audio_file]
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     _, stderr = process.communicate()
     output = stderr.decode('utf-8', errors='ignore')
