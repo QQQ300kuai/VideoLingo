@@ -70,8 +70,8 @@ reflect_translate: true
 pause_before_translate: false
 
 ## ======================== Dubbing Settings ======================== ##
-# TTS selection [sf_fish_tts, openai_tts, gpt_sovits, azure_tts, fish_tts, edge_tts, custom_tts]
-tts_method: 'sf_cosyvoice2'
+# TTS selection [sf_fish_tts, openai_tts, gpt_sovits, azure_tts, fish_tts, edge_tts, custom_tts, mimo_tts]
+tts_method: 'mimo_tts'
 
 # SiliconFlow FishTTS
 sf_fish_tts:
@@ -89,6 +89,14 @@ sf_fish_tts:
 openai_tts:
   api_key: ''
   voice: 'alloy'
+
+# Xiaomi MiMo v2.5 TTS, https://platform.xiaomimimo.com
+mimo_tts:
+  api_key: 'sk-spc0fm1hx86jq99lqv4sxwwauinyiqhvs35l75rzcd8q0h3w'
+  # preset voices: 冰糖 茉莉 苏打 白桦 Mia Chloe Milo Dean mimo_default
+  voice: 'mimo_default'
+  # optional natural-language style instruction, leave empty for default
+  style: ''
 
 # Azure configuration, 302.ai API only
 azure_tts:

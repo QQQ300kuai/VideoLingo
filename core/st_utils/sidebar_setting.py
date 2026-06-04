@@ -237,6 +237,7 @@ def page_setting():
             "custom_tts",
             "sf_cosyvoice2",
             "f5tts",
+            "mimo_tts",
         ]
         select_tts = st.selectbox(
             t("TTS Method"),
@@ -322,6 +323,29 @@ def page_setting():
 
         elif select_tts == "f5tts":
             config_input("302ai API", "f5tts.302_api")
+
+        elif select_tts == "mimo_tts":
+            config_input(t("MiMo API Key"), "mimo_tts.api_key")
+            mimo_voices = [
+                "mimo_default", "冰糖", "茉莉", "苏打", "白桦",
+                "Mia", "Chloe", "Milo", "Dean",
+            ]
+            current_voice = load_key("mimo_tts.voice")
+            mimo_voice = st.selectbox(
+                t("MiMo Voice"),
+                options=mimo_voices,
+                index=mimo_voices.index(current_voice)
+                if current_voice in mimo_voices
+                else 0,
+            )
+            if mimo_voice != load_key("mimo_tts.voice"):
+                update_key("mimo_tts.voice", mimo_voice)
+                st.rerun()
+            config_input(
+                t("MiMo Style Prompt"),
+                "mimo_tts.style",
+                help=t("Optional natural-language style instruction, leave empty for default"),
+            )
 
 
 def check_api():
