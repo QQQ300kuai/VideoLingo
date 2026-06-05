@@ -22,6 +22,8 @@
     "Vocal separation enhance": "Amélioration de la séparation vocale",
     "Burn-in Subtitles": "Incruster les sous-titres",
     "Whether to burn subtitles into the video, will increase processing time": "Pour incruster les sous-titres dans la vidéo, cela augmentera le temps de traitement",
+    "Keep Background Audio": "Conserver l'audio de fond",
+    "Mix the original background music/SFX into the dubbed video. Turn off if the separated background introduces noise": "Mixer la musique/les effets sonores d'origine dans la vidéo doublée. Désactivez si le fond séparé introduit du bruit",
     "Video Resolution": "Résolution vidéo",
     "Recommended for videos with loud background noise, but will increase processing time": "Recommandé pour les vidéos avec beaucoup de bruit de fond, mais augmente le temps de traitement",
     "Dubbing Settings": "Paramètres de doublage",

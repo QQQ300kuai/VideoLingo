@@ -226,6 +226,17 @@ def page_setting():
         if burn_subtitles != load_key("burn_subtitles"):
             update_key("burn_subtitles", burn_subtitles)
             st.rerun()
+
+        keep_background_audio = st.toggle(
+            t("Keep Background Audio"),
+            value=load_key("keep_background_audio"),
+            help=t(
+                "Mix the original background music/SFX into the dubbed video. Turn off if the separated background introduces noise"
+            ),
+        )
+        if keep_background_audio != load_key("keep_background_audio"):
+            update_key("keep_background_audio", keep_background_audio)
+            st.rerun()
     with st.expander(t("Dubbing Settings"), expanded=True):
         tts_methods = [
             "azure_tts",

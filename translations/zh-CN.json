@@ -22,6 +22,8 @@
   "Vocal separation enhance": "人声分离增强",
   "Burn-in Subtitles": "烧录字幕",
   "Whether to burn subtitles into the video, will increase processing time": "是否将字幕烧录到视频中，会增加处理时间",
+  "Keep Background Audio": "保留背景音",
+  "Mix the original background music/SFX into the dubbed video. Turn off if the separated background introduces noise": "将原视频的背景音乐/音效混入配音视频。如果分离出的背景音带来杂音，可关闭",
   "Video Resolution": "视频分辨率",
   "Recommended for videos with loud background noise, but will increase processing time": "推荐用于背景噪音较大的视频,但会增加处理时间",
   "Dubbing Settings": "配音设置",

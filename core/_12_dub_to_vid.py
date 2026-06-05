@@ -64,14 +64,30 @@ def merge_video_audio():
         f"ShadowColour={TRANS_SHADOW_COLOR},Alignment=2,MarginV=27,BorderStyle=1'"
     )
     
-    cmd = [
-        FFMPEG, '-y', '-i', VIDEO_FILE, '-i', background_file, '-i', normalized_dub_audio,
-        '-filter_complex',
+    video_filter = (
         f'[0:v]scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=decrease,'
         f'pad={TARGET_WIDTH}:{TARGET_HEIGHT}:(ow-iw)/2:(oh-ih)/2,'
-        f'{subtitle_filter}[v];'
-        f'[1:a][2:a]amix=inputs=2:duration=first:dropout_transition=3[a]'
-    ]
+        f'{subtitle_filter}[v]'
+    )
+
+    keep_background = load_key("keep_background_audio")
+    if keep_background:
+        # Mix original background music/SFX with the dubbed audio
+        cmd = [
+            FFMPEG, '-y', '-i', VIDEO_FILE, '-i', background_file, '-i', normalized_dub_audio,
+            '-filter_complex',
+            f'{video_filter};'
+            f'[1:a][2:a]amix=inputs=2:duration=first:dropout_transition=3[a]'
+        ]
+    else:
+        # Drop the background track, use the dubbed audio only
+        rprint("[bold yellow]Background audio disabled, using dubbed audio only.[/bold yellow]")
+        cmd = [
+            FFMPEG, '-y', '-i', VIDEO_FILE, '-i', normalized_dub_audio,
+            '-filter_complex',
+            f'{video_filter};'
+            f'[1:a]anull[a]'
+        ]
 
     if load_key("ffmpeg_gpu"):
         rprint("[bold green]Using GPU acceleration...[/bold green]")

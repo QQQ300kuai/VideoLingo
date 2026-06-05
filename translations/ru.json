@@ -22,6 +22,8 @@
     "Vocal separation enhance": "Улучшение отделения голоса",
     "Burn-in Subtitles": "Встроить субтитры",
     "Whether to burn subtitles into the video, will increase processing time": "Встраивать ли субтитры в видео, это увеличит время обработки",
+    "Keep Background Audio": "Сохранить фоновый звук",
+    "Mix the original background music/SFX into the dubbed video. Turn off if the separated background introduces noise": "Микшировать оригинальную фоновую музыку/звуки в дублированное видео. Отключите, если выделенный фон вносит шум",
     "Video Resolution": "Разрешение видео",
     "Recommended for videos with loud background noise, but will increase processing time": "Рекомендуется для видео с громким фоновым шумом, но увеличит время обработки",
     "Dubbing Settings": "Настройки дубляжа",

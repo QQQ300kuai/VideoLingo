@@ -40,6 +40,9 @@ whisper:
 # Whether to burn subtitles into the video
 burn_subtitles: true
 
+# Whether to keep the original background audio (music/SFX) mixed into the dubbed video
+keep_background_audio: true
+
 ## ======================== Advanced Settings ======================== ##
 # *🔬 h264_nvenc GPU acceleration for ffmpeg, make sure your GPU supports it
 ffmpeg_gpu: false
